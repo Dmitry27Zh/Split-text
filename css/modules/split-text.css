@@ -1,0 +1,37 @@
+:root {
+  --background: linear-gradient(45deg, #02001f, #1f1b4e);
+  --color: #ff2c75;
+  --fz: 1.5rem;
+  --gap: 0.5rem;
+}
+
+.split-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  background: var(--background);
+  min-height: 100vh;
+  color: var(--color);
+}
+
+.split-text__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.split-text__item {
+  font-size: var(--fz);
+  text-transform: uppercase;
+}
+
+.split-text__link {
+  color: inherit;
+  text-decoration: none;
+}

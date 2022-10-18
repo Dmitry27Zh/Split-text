@@ -1,0 +1,9 @@
+@import './modules/split-text.css';
+
+html {
+  font-size: 20px;
+}
+
+body {
+  margin: 0;
+}
