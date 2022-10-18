@@ -32,6 +32,19 @@
 }
 
 .split-text__link {
+  display: flex;
+  flex-direction: column;
   color: inherit;
+  line-height: 1;
   text-decoration: none;
+}
+
+.split-text__part {
+  height: 0.5em;
+  overflow: hidden;
+}
+
+.split-text__bottom {
+  display: flex;
+  align-items: flex-end;
 }
