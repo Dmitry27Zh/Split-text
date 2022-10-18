@@ -1,8 +1,12 @@
 :root {
   --background: linear-gradient(45deg, #02001f, #1f1b4e);
   --color: #ff2c75;
-  --fz: 1.5rem;
+  --accent-color: #ffffff;
+  --fz: 2.5rem;
   --gap: 0.5rem;
+  --deg: 15deg;
+  --separator-height: 0.2rem;
+  --separator-offset: 0.8rem;
 }
 
 .split-text {
@@ -13,7 +17,7 @@
   font-weight: 700;
   background: var(--background);
   min-height: 100vh;
-  color: var(--color);
+  user-select: none;
 }
 
 .split-text__list {
@@ -32,16 +36,48 @@
 }
 
 .split-text__link {
+  position: relative;
   display: flex;
   flex-direction: column;
-  color: inherit;
+  color: var(--color);
   line-height: 1;
   text-decoration: none;
+  transition: color 0.3s;
+}
+
+.split-text__link:hover,
+.split-text__link:focus-visible {
+  color: var(--accent-color);
+}
+
+.split-text__link:hover .split-text__part,
+.split-text__link:focus-visible .split-text__part {
+  transform: skew(var(--deg));
+}
+
+.split-text__link:hover::before,
+.split-text__link:focus-visible::before {
+  transform: scale(1);
+}
+
+.split-text__link::before {
+  z-index: 1;
+  position: absolute;
+  top: calc(50% - var(--separator-height) / 2);
+  left: calc(var(--separator-offset) * -1);
+  right: calc(var(--separator-offset) * -1);
+  height: var(--separator-height);
+  background: var(--color);
+  border-radius: 20px;
+  transform: scale(0);
+  transition: transform 0.3s ease-in-out;
+  content: '';
 }
 
 .split-text__part {
   height: 0.5em;
   overflow: hidden;
+  transition: transform 0.3s ease-in-out;
 }
 
 .split-text__bottom {
